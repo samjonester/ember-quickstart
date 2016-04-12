@@ -9,16 +9,9 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{rental-listing}}`);
+  this.set('rental', {title: 'FooBar'});
 
-  assert.equal(this.$().text().trim(), '');
+  this.render(hbs`{{rental-listing rental=rental}}`);
 
-  // Template block usage:
-  this.render(hbs`
-    {{#rental-listing}}
-      template block text
-    {{/rental-listing}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$('.rental-title').text().trim(), 'FooBar');
 });
