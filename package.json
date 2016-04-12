@@ -8,6 +8,7 @@
     "test": "tests"
   },
   "scripts": {
+    "deps": "npm install -g ember-cli bower phantomjs-prebuilt jshint && npm install && bower install",
     "build": "ember build",
     "start": "ember server",
     "test": "ember test"
